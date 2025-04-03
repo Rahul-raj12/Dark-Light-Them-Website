@@ -1,1 +1,292 @@
 
+HomeWebDevelopment
+Tech ArticlesMobileComputingContact Us
+Subscribe - Thapa Technical
+
+Create a responsive Navbar with dropdown menu using HTML and CSS
+ April 04, 2023
+
+
+
+A Navbar is an essential element of any website as it provides a quick and easy way to navigate between pages. A dropdown menu, on the other hand, allows you to provide more options for your visitors without cluttering up the Navbar. In this tutorial, we'll walk you through the steps of creating a responsive Navbar with a dropdown menu using HTML and CSS.
+
+Complete Source Code
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Drop Down</title>
+<!--    <link rel="stylesheet" href="style.css">-->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root{
+            --bg-main:#18122B;
+            --bg-primary:#ECF2FF;
+        }
+
+        html{
+            font-size: 62.5%;
+            font-family: "Lexend Deca Light";
+        }
+
+        body{
+            background-color:var(--bg-primary)
+        }
+
+        a,li{
+            margin: 0;
+            font-size: 1.8rem;
+            color: var(--bg-primary);
+        }
+
+        header{
+            background-color: var(--bg-main);
+            height: 10rem;
+            color: var(--bg-primary);
+            display: grid;
+            place-items: center;
+        }
+
+        .container{
+            width: 80%;
+            height: 10rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /*background-color: red;*/
+        }
+
+
+        .container ul{
+            list-style: none;
+            display: flex;
+            gap: 3rem;
+            height: 10rem;
+        }
+
+        .container ul li{
+            height: 10rem;
+            line-height: 10rem;
+            position: relative;
+            cursor: pointer;
+            /*background-color: yellow;*/
+        }
+
+        .container ul li a:hover, .container ul li:hover{
+            color: red;
+        }
+
+        .container .drop-down{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--bg-main);
+            height: auto;
+            min-width: 20rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 0;
+            gap: 2rem;
+            top: 15rem;
+            transition: all .3s linear;
+
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .container ul li:hover > .drop-down{
+            visibility: visible;
+            opacity: 1;
+            top: 10rem;
+        }
+
+        .container .drop-down li{
+            height: 3rem;
+            line-height: 3rem;
+            width: 100%;
+            text-align: center;
+            transition: all .3s linear;
+            /*border: 1px solid red;*/
+        }
+
+        .container .drop-down li:hover{
+            background-color: var(--bg-primary);
+        }
+
+
+        /*hero sectoin style */
+        h2 {
+            font-size: clamp(2.8rem, 2rem + 3vw, 4.8rem);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            color: var(--bg-primary);
+        }
+
+        h4 {
+            font-size: clamp(1.25rem, 1rem + 3vw, 2.5rem);
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--bg-primary);
+        }
+
+        button {
+            margin: 6rem;
+            padding: 1rem 2rem;
+            background: var(--btn-bg);
+            color: var(--bg-primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.6;
+            border: 1px solid var(--bg-primary);
+            border-radius: 0.5rem;
+            transition: background-color 300ms;
+        }
+
+        button:focus,
+        button:hover {
+            background: var(--bg-primary);
+            cursor: pointer;
+        }
+
+        .hero {
+            display: grid;
+            height: 90rem;
+            background-image: url(images/bg.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .hero > * {
+            grid-area: 1 / -1;
+        }
+
+        .hero__content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <div>
+            <h2>Thapa Technical</h2>
+        </div>
+        <nav>
+            <ul>
+                <li> <a href="#" target="_blank" > Home </a> </li>
+                <li>  About
+                    <ul class="drop-down">
+                        <li> <a href="#" target="_blank" > Portfolio </a> </li>
+                        <li> <a href="#" target="_blank" > Teams </a> </li>
+                    </ul>
+                </li>
+                <li> <a href="#" target="_blank" > Gallery </a> </li>
+                <li>  Services
+                    <ul class="drop-down">
+                        <li> <a href="#" target="_blank" > Portfolio </a> </li>
+                        <li> <a href="#" target="_blank" > Teams </a> </li>
+                        <li> <a href="https://www.youtube.com/playlist?list=PLwGdqUZWnOp3t3qT7pvAznwUDzKbhEcCc" target="_blank" > Portfolio </a> </li>
+                        <li> <a href="#" target="_blank" > Teams </a> </li>
+                    </ul>
+                </li>
+                <li> <a href="#" target="_blank" > Contact </a> </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!--hero section -->
+<section class="hero">
+    <div class="hero__content">
+        <h2>Drop Down Menu</h2>
+        <h4>Free source code</h4>
+        <button>GET NOW</button>
+    </div>
+</section>
+
+</body>
+</html>
+view rawindex.html hosted with ❤ by GitHub
+Share This:    
+Newer PostOlder Post
+Popular
+How To Get The Source Code
+How To Get The Source Code
+Build Complete Ecommerce Website using HTML CSS & JavaScript 🔥Logic Building + Free Notes💝
+Build Complete Ecommerce Website using HTML CSS & JavaScript 🔥Logic Building + Free Notes💝
+How to Install and Set Up React JS v19 with Node.js, Bun, and Vite
+How to Install and Set Up React JS v19 with Node.js, Bun, and Vite
+Thapa Technical React Ecommerce Website Series
+Thapa Technical React Ecommerce Website Series
+JavaScript Full Course Tutorial for Beginners in Hindi🔥Free Notes with 10+ Projects | P-1
+JavaScript Full Course Tutorial for Beginners in Hindi🔥Free Notes with 10+ Projects | P-1
+Tags
+Artificial IntelligenceAshoka Chakrabest web development books 2019BioDataBootstrap 4calculator html cssCSS CoursecssgridInHindiGit in Hindihtml and csshtml5 and css3javascriptjqueryludo game in javascript with codeMobile Computing In Hindimysqlphpphp and mysqlReact Nativereact reduxSoft Computingssh key to githubSublime Text 3 TutorialTechEssaytop 10 web books 2019websiteWright WR 800 Condenser Microphone Review
+YouTubeChannel
+
+Connect With Me
+
+Labels
+Artificial Intelligence
+Ashoka Chakra
+best web development books 2019
+BioData
+Bootstrap 4
+calculator html css
+CSS Course
+cssgridInHindi
+Git in Hindi
+html and css
+html5 and css3
+javascript
+jquery
+ludo game in javascript with code
+Mobile Computing In Hindi
+mysql
+php
+php and mysql
+React Native
+react redux
+Soft Computing
+ssh key to github
+Sublime Text 3 Tutorial
+TechEssay
+top 10 web books 2019
+website
+Wright WR 800 Condenser Microphone Review
+Recent Posts
+Posts
+Home
+AboutUs
+Privacy Policy
+Disclaimer
+Contact Us
+Report Abuse
+Disclaimer
+ 
+Privacy Policy
+© ThapaTechnical 2024. By SoraTemplates | DSTB By MyBloggerThemes
+ 
+ 
+ 
+ 
+
